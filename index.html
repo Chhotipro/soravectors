@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoraVectors - AI & Data Automation Solutions</title>
+    <meta name="description" content="Leading provider of AI-powered CCTV analytics, WhatsApp automation, and intelligent data solutions for enterprise businesses.">
+    <meta name="keywords" content="AI, CCTV analytics, data automation, WhatsApp bot, artificial intelligence, computer vision">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d2d5f 100%);
+        }
+
+        .neural-network {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(0, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .connection {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3));
+            animation: flow 3s infinite linear;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+
+        @keyframes flow {
+            0% { opacity: 0.2; transform: scaleX(0); }
+            50% { opacity: 0.8; transform: scaleX(1); }
+            100% { opacity: 0.2; transform: scaleX(0); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00ffff;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            color: #00ffff;
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        @keyframes glow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.3); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #fff;
+        }
+
+        .section-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #00ffff;
+            margin-bottom: 1rem;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .feature-item i {
+            font-size: 2rem;
+            color: #ff00ff;
+            margin-bottom: 1rem;
+        }
+
+        /* About Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #00ffff;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #00ffff;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(15, 15, 35, 0.95);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 2rem 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-content {
+                padding: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="neural-network" id="neural-network"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">SoraVectors</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>SoraVectors</h1>
+            <p>Transforming Business Intelligence with AI-Powered CCTV Analytics & Automation</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">About SoraVectors</h2>
+            <div class="section-content fade-in">
+                <p style="font-size: 1.2rem; text-align: center; margin-bottom: 2rem;">
+                    We are pioneers in AI-driven data automation, specializing in intelligent CCTV analytics and conversational AI solutions. Our cutting-edge technology transforms raw surveillance data into actionable business insights.
+                </p>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-brain"></i>
+                        <h3>AI-Powered Intelligence</h3>
+                        <p>Advanced machine learning algorithms that understand and analyze visual data in real-time.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Enterprise Security</h3>
+                        <p>Bank-grade security protocols ensuring your data remains protected and compliant.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Scalable Solutions</h3>
+                        <p>Cloud-native architecture that grows with your business needs and requirements.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-clock"></i>
+                        <h3>24/7 Monitoring</h3>
+                        <p>Round-the-clock intelligent monitoring with instant alert systems and notifications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Services</h2>
+            <div class="services-grid fade-in">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>AI-Powered CCTV Analytics</h3>
+                    <p>Transform your surveillance system into an intelligent monitoring solution with real-time object detection, facial recognition, and behavioral analysis.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Bot Integration</h3>
+                    <p>Receive instant alerts and consolidated reports directly on WhatsApp. Query your CCTV data using natural language through our intelligent chatbot.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Data Automation & Analytics</h3>
+                    <p>Automated data processing, pattern recognition, and intelligent reporting systems that provide actionable insights for decision-making.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Custom AI Solutions</h3>
+                    <p>Tailored artificial intelligence solutions designed specifically for your business processes and operational requirements.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Integration</h3>
+                    <p>Seamless cloud deployment with scalable infrastructure, ensuring high availability and global accessibility of your AI systems.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Comprehensive technical support and maintenance services to ensure optimal performance of your AI-powered systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Industry Solutions</h2>
+            <div class="section-content fade-in">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3>Retail Intelligence</h3>
+                        <p>Customer behavior analysis, theft detection, inventory monitoring, and foot traffic analytics for retail optimization.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>Manufacturing</h3>
+                        <p>Quality control automation, safety monitoring, equipment surveillance, and production line optimization.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h3>Healthcare</h3>
+                        <p>Patient monitoring, facility security, compliance tracking, and emergency response automation.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Education</h3>
+                        <p>Campus security, attendance tracking, behavior monitoring, and facility management solutions.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Smart Buildings</h3>
+                        <p>Occupancy monitoring, energy optimization, security automation, and visitor management systems.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Transportation</h3>
+                        <p>Traffic monitoring, license plate recognition, passenger counting, and incident detection systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Leadership</h2>
+            <div class="section-content fade-in">
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Chief Executive Officer</h3>
+                        <p>Visionary leader driving AI innovation and strategic business growth in the data automation sector.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Chief Technology Officer</h3>
+                        <p>AI and machine learning expert with extensive experience in computer vision and neural networks.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-photo">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Head of Analytics</h3>
+                        <p>Data science specialist focused on developing intelligent algorithms for business intelligence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title fade-in">Contact Us</h2>
+            <div class="section-content fade-in">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <p style="font-size: 1.2rem;">Ready to transform your business with AI? Let's discuss your requirements.</p>
+                </div>
+                
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company" placeholder="Your company name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@company.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="How can we help you?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project requirements and how our AI solutions can help your business..." required></textarea>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <button type="submit" class="cta-button">Send Message</button>
+                    </div>
+                </form>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; text-align: center;">
+                    <div>
+                        <h3 style="color: #00ffff; margin-bottom: 1rem;"><i class="fas fa-envelope"></i> Email</h3>
+                        <p>contact@soravectors.com</p>
+                        <p>sales@soravectors.com</p>
+                    </div>
+                    
+                    <div>
+                        <h3 style="color: #00ffff; margin-bottom: 1rem;"><i class="fas fa-phone"></i> Phone</h3>
+                        <p>+91-XXXX-XXXXXX</p>
+                        <p>+1-XXX-XXX-XXXX</p>
+                    </div>
+                    
+                    <div>
+                        <h3 style="color: #00ffff; margin-bottom: 1rem;"><i class="fas fa-map-marker-alt"></i> Office</h3>
+                        <p>Dhanbad, Jharkhand</p>
+                        <p>India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SoraVectors</h3>
+                    <p>Leading the future of AI-powered business intelligence and data automation solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <p>AI-Powered CCTV Analytics</p>
+                    <p>WhatsApp Bot Integration</p>
+                    <p>Data Automation</p>
+                    <p>Custom AI Solutions</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Industries</h3>
+                    <p>Retail & E-commerce</p>
+                    <p>Manufacturing</p>
+                    <p>Healthcare</p>
+                    <p>Education</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <p>About Us</p>
+                    <p>Privacy Policy</p>
+                    <p>Terms of Service</p>
+                    <p>Support</p>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; 2025 SoraVectors Pvt Ltd. All rights reserved. | Transforming Business with AI</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Neural Network Animation
+        function createNeuralNetwork() {
+            const network = document.getElementById('neural-network');
+            const nodes = [];
+            const nodeCount = 50;
+
+            // Create nodes
+            for (let i = 0; i < nodeCount; i++) {
+                const node = document.createElement('div');
+                node.className = 'node';
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.animationDelay = Math.random() * 2 + 's';
+                network.appendChild(node);
+                nodes.push({
+                    element: node,
+                    x: parseFloat(node.style.left),
+                    y: parseFloat(node.style.top)
+                });
+            }
+
+            // Create connections
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[j].x - nodes[i].x;
+                    const dy = nodes[j].y - nodes[i].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 20) {
+                        const connection = document.createElement('div');
+                        connection.className = 'connection';
+                        const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+                        connection.style.width = distance + 'vw';
+                        connection.style.left = nodes[i].x + '%';
+                        connection.style.top = nodes[i].y + '%';
+                        connection.style.transform = `rotate(${angle}deg)`;
+                        connection.style.animationDelay = Math.random() * 3 + 's';
+                        network.appendChild(connection);
+                    }
+                }
+            }
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // Simple validation
+            if (!data.name || !data.email || !data.message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = 'Sending...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+                this.reset();
+                button.textContent = originalText;
+                button.disabled = false;
+            }, 2000);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 15, 35, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
+            
+            handleScrollAnimations();
+        });
+
+        // Particle system for enhanced visual effects
+        function createParticles() {
+            const particleCount = 20;
+            const network = document.getElementById('neural-network');
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = '2px';
+                particle.style.height = '2px';
+                particle.style.background = 'rgba(255, 0, 255, 0.6)';
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animation = `float ${3 + Math.random() * 4}s ease-in-out infinite`;
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                network.appendChild(particle);
+                
+                // Move particles
+                setInterval(() => {
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.top = Math.random() * 100 + '%';
+                }, 8000 + Math.random() * 4000);
+            }
+        }
+
+        // Typing effect for hero text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            setTimeout(type, 1000); // Delay before starting
+        }
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = [
+                { element: document.createElement('div'), target: 500, suffix: '+', label: 'AI Models Deployed' },
+                { element: document.createElement('div'), target: 50, suffix: '+', label: 'Enterprise Clients' },
+                { element: document.createElement('div'), target: 99, suffix: '%', label: 'Uptime Guarantee' },
+                { element: document.createElement('div'), target: 24, suffix: '/7', label: 'Support Available' }
+            ];
+            
+            // Add stats section if it doesn't exist
+            if (!document.getElementById('stats-section')) {
+                const statsSection = document.createElement('section');
+                statsSection.id = 'stats-section';
+                statsSection.className = 'section';
+                statsSection.innerHTML = `
+                    <div class="container">
+                        <h2 class="section-title fade-in">Why Choose SoraVectors</h2>
+                        <div class="section-content fade-in">
+                            <div id="stats-grid" class="features-grid"></div>
+                        </div>
+                    </div>
+                `;
+                
+                // Insert before contact section
+                const contactSection = document.getElementById('contact');
+                contactSection.parentNode.insertBefore(statsSection, contactSection);
+                
+                const statsGrid = document.getElementById('stats-grid');
+                
+                counters.forEach(counter => {
+                    const statItem = document.createElement('div');
+                    statItem.className = 'feature-item';
+                    statItem.innerHTML = `
+                        <div class="stat-number" style="font-size: 3rem; font-weight: bold; color: #00ffff; margin-bottom: 0.5rem;">
+                            <span class="counter" data-target="${counter.target}">${counter.suffix === '/7' ? counter.target : 0}</span>${counter.suffix}
+                        </div>
+                        <h3 style="margin-bottom: 0;">${counter.label}</h3>
+                    `;
+                    statsGrid.appendChild(statItem);
+                });
+            }
+        }
+
+        // Intersection Observer for counter animation
+        function startCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        let current = 0;
+                        const increment = target / 100;
+                        
+                        const updateCounter = () => {
+                            if (current < target) {
+                                current += increment;
+                                counter.textContent = Math.ceil(current);
+                                setTimeout(updateCounter, 20);
+                            } else {
+                                counter.textContent = target;
+                            }
+                        };
+                        
+                        updateCounter();
+                        observer.unobserve(counter);
+                    }
+                });
+            });
+            
+            counters.forEach(counter => observer.observe(counter));
+        }
+
+        // Enhanced hover effects for service cards
+        function enhanceServiceCards() {
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                    this.style.boxShadow = '0 20px 40px rgba(0, 255, 255, 0.2)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        }
+
+        // Dynamic background color changes
+        function dynamicBackground() {
+            const colors = [
+                'linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d2d5f 100%)',
+                'linear-gradient(135deg, #1a0f23 0%, #3e1a3e 50%, #5f2d5f 100%)',
+                'linear-gradient(135deg, #0f1a23 0%, #1a3e3e 50%, #2d5f5f 100%)'
+            ];
+            
+            let currentColor = 0;
+            const bgElement = document.querySelector('.bg-animation');
+            
+            setInterval(() => {
+                currentColor = (currentColor + 1) % colors.length;
+                bgElement.style.background = colors[currentColor];
+            }, 15000);
+        }
+
+        // Scroll progress indicator
+        function createScrollIndicator() {
+            const indicator = document.createElement('div');
+            indicator.style.position = 'fixed';
+            indicator.style.top = '0';
+            indicator.style.left = '0';
+            indicator.style.width = '0%';
+            indicator.style.height = '3px';
+            indicator.style.background = 'linear-gradient(90deg, #00ffff, #ff00ff)';
+            indicator.style.zIndex = '1001';
+            indicator.style.transition = 'width 0.3s ease';
+            document.body.appendChild(indicator);
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                indicator.style.width = scrolled + '%';
+            });
+        }
+
+        // Add loading animation
+        function createLoader() {
+            const loader = document.createElement('div');
+            loader.id = 'loader';
+            loader.innerHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #0f0f23; display: flex; align-items: center; justify-content: center; z-index: 9999;">
+                    <div style="text-align: center; color: #fff;">
+                        <div style="font-size: 2rem; font-weight: bold; color: #00ffff; margin-bottom: 1rem; animation: glow 2s ease-in-out infinite alternate;">SoraVectors</div>
+                        <div style="width: 50px; height: 50px; border: 3px solid rgba(0, 255, 255, 0.3); border-top: 3px solid #00ffff; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+                        <p style="margin-top: 1rem; opacity: 0.8;">Loading AI-Powered Experience...</p>
+                    </div>
+                </div>
+            `;
+            
+            const spinStyle = document.createElement('style');
+            spinStyle.textContent = `
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(spinStyle);
+            document.body.appendChild(loader);
+            
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    loader.style.transition = 'opacity 0.5s ease';
+                    setTimeout(() => loader.remove(), 500);
+                }, 1000);
+            });
+        }
+
+        // Cookie consent banner
+        function createCookieBanner() {
+            if (!localStorage.getItem('cookieConsent')) {
+                const banner = document.createElement('div');
+                banner.style.cssText = `
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: rgba(15, 15, 35, 0.95);
+                    backdrop-filter: blur(10px);
+                    color: white;
+                    padding: 1rem;
+                    z-index: 1000;
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                `;
+                
+                banner.innerHTML = `
+                    <div>
+                        <p style="margin: 0; font-size: 0.9rem;">We use cookies to enhance your experience and improve our services. By continuing to use our site, you accept our use of cookies.</p>
+                    </div>
+                    <button id="accept-cookies" style="background: linear-gradient(45deg, #00ffff, #ff00ff); border: none; color: white; padding: 0.5rem 1rem; border-radius: 25px; cursor: pointer; font-weight: bold;">Accept</button>
+                `;
+                
+                document.body.appendChild(banner);
+                
+                document.getElementById('accept-cookies').addEventListener('click', () => {
+                    localStorage.setItem('cookieConsent', 'true');
+                    banner.remove();
+                });
+            }
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            createLoader();
+            createNeuralNetwork();
+            createParticles();
+            createScrollIndicator();
+            animateCounters();
+            enhanceServiceCards();
+            dynamicBackground();
+            handleScrollAnimations();
+            
+            setTimeout(() => {
+                startCounters();
+                createCookieBanner();
+            }, 2000);
+            
+            // Add typing effect to hero subtitle
+            const heroSubtitle = document.querySelector('.hero-content p');
+            if (heroSubtitle) {
+                const originalText = heroSubtitle.textContent;
+                typeWriter(heroSubtitle, originalText, 50);
+            }
+        });
+
+        // Performance optimization
+        let ticking = false;
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(handleScrollAnimations);
+                ticking = true;
+            }
+        }
+        
+        function handleScrollAnimationsOptimized() {
+            handleScrollAnimations();
+            ticking = false;
+        }
+        
+        // Replace the scroll event listener
+        window.addEventListener('scroll', requestTick, { passive: true });
+        
+        // Add error handling for contact form
+        function validateForm(data) {
+            const errors = [];
+            
+            if (!data.name || data.name.length < 2) {
+                errors.push('Name must be at least 2 characters long');
+            }
+            
+            if (!data.email || !/\S+@\S+\.\S+/.test(data.email)) {
+                errors.push('Please enter a valid email address');
+            }
+            
+            if (!data.message || data.message.length < 10) {
+                errors.push('Message must be at least 10 characters long');
+            }
+            
+            return errors;
+        }
+    </script>
+</body>
+</html>
